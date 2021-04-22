@@ -1,0 +1,3 @@
+autograd is a Python package implementing auto differentiation
+
+HMC carries out the model performing Hamiltonian Monte Carlo based on auto differentiation and computational graph

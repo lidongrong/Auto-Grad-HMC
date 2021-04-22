@@ -1,3 +1,5 @@
-autograd is a Python package implementing auto differentiation
+autograd.py is a Python package implementing auto differentiation
 
-HMC carries out the model performing Hamiltonian Monte Carlo based on auto differentiation and computational graph
+HMC.py carries out the model performing Hamiltonian Monte Carlo based on auto differentiation and computational graph
+
+HMC_TEST.py is a Python script sampling from certain distributions to test the model

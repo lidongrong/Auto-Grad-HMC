@@ -18,7 +18,19 @@ In this section, a toy example will be given to demonstrate the inference proced
 
 We consider a normal model with known variance (set to be 1) and an unknow mean parameter $\theta$. The parameter $\theta$ itself follows a normal distribution with known mean and variance. The hierarchical structure of the model can be written as:
 
-$\theta \sim N$
+$\theta \sim N(\mu, b^2)$
+
+$y|\theta \sim N(\theta, 1)$
+
+To make the prior rather non-informative, we let $\mu=0, \b^2=6$.
+
+To perform the estimate, we generate $y$ from distribution $N(1,1)$. That is, we set $\theta$ to be 1. In this example, we generate 100 samples:
+
+```py
+y=np.random.randn(100)
+y=y+1
+
+```
 
 
 

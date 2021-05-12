@@ -99,6 +99,13 @@ sum(sample)/1000
 sum(y)/(1/6+100)
 ```
 
+## Limitations
+
+#### 2021.5.12
+The sampler cannot deal with intractable likelihoods. Perhaps ABC (Approximation Bayesian Computation) will be adopted in the future.
+
+The sampler may also have difficulty representing highly complex models such as PGM.
+
 
 ## Reference
 

@@ -16,7 +16,9 @@ A key advantange of HMC is that it does not need to compute the marginal distrib
 
 In this section, a toy example will be given to demonstrate the inference procedure. 
 
-We consider a normal model with known variance (set to be 1) and an unknow mean parameter $\theta$. The parameter $\theta$
+We consider a normal model with known variance (set to be 1) and an unknow mean parameter $\theta$. The parameter $\theta$ itself follows a normal distribution with known mean and variance. The hierarchical structure of the model can be written as:
+
+$\theta \sim N$
 
 
 

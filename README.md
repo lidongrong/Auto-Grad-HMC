@@ -22,7 +22,7 @@ $\theta \sim N(\mu, b^2)$
 
 $y|\theta \sim N(\theta, 1)$
 
-To make the prior rather non-informative, we let $\mu=0, \b^2=6$.
+To make the prior rather non-informative, we let $\mu=0, b^2=6$.
 
 To perform the estimate, we generate $y$ from distribution $N(1,1)$. That is, we set $\theta$ to be 1. In this example, we generate 100 samples:
 

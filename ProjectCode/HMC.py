@@ -66,7 +66,7 @@ class Sampler():
                 log_pdf=ag.log(self.pdf(new_theta))
                 # auto differentiation
                 diff=ag.get_grad(log_pdf)
-                
+               
                 # start leap frog process, renew phi
                 new_phi=[phi[i]+eps*0.5*(diff[new_theta[i]]) for i in range(0,self.para_size)]
                 # leap frog process: renew theta
@@ -107,17 +107,21 @@ class Sampler():
 # likelihood is the distribution of the data p(X|theta)
 # by claiming prior and likelihood, the BayesModel class automatically compute
 # posterior and then sample from posterior
+
 class BayesModel(Sampler):
     def __init__(self,prior,likelihood,theta):
+        Sampler.__init__(self,prior,theta)
         self.prior=prior
         self.likelihood=likelihood
         def posterior(theta):
             return self.prior(theta)*self.likelihood(theta)
-        Sampler.__init__(posterior,theta)
+        self.pdf=posterior
+
 
         
             
     
+
 
 
 

@@ -32,6 +32,10 @@ def add(a,b):
     local_grad=((a,1),(b,1))
     return Node(value,local_grad)
 
+# Vectorize add operation
+# No need for vectorization again, already reloaded via node_vector
+#add=np.vectorize(add)
+
 def mul(a,b):
     value=a.value*b.value
     local_grad=((a,b.value),(b,a.value))
@@ -57,27 +61,37 @@ def sin(a):
     value=math.sin(a.value)
     local_grad=((a,math.cos(a.value)),)
     return Node(value,local_grad)
+# vectorize sin operator
+#sin=np.vectorize(sin)
 
 def cos(a):
     value=math.cos(a.value)
     local_grad=((a,-1*math.sin(a.value)),)
     return Node(value,local_grad)
+# vectorize cos operator
+#cos=np.vectorize(cos)
 
 def exp(a):
     value=math.exp(a.value)
     local_grad=((a,math.exp(a.value)),)
     return Node(value,local_grad)
+# vectorize exponential operator
+#exp=np.vectorize(exp)
+
 
 def log(a):
     value=math.log(a.value)*(a.value>0)+0.01*(a.value<=0)
     local_grad=((a,1/a.value),)
     return Node(value,local_grad)
+# vectorize log operator
+#og=np.vectorize(log)
 
 def power(a,n):
     value=a.value**n
     local_grad=((a,n*(a.value**(n-1))),)
     return Node(value,local_grad)
-
+# vectorize power operator
+#power=np.vectorize(power)
 
 
 # Compute gradient using computational graph
@@ -96,5 +110,17 @@ def get_grad(node):
     compute_grad(node,1)
     return grad
 
+#get_grad=np.vectorize(get_grad)
+
+# modify the function into vector manner
 node_vector=np.vectorize(lambda x: Node(x))
 value_vector=np.vectorize(lambda nodes: nodes.value)
+
+# vectorize operators 
+# if you are operating a vector using the following operators, use v+operator name
+# WARNING: IF YOU ARE OPERATING VECTORS, USE vsin, vcos, vexp, vlog instead of
+# sin, cos, exp, log !!!
+vexp=np.vectorize(exp)
+vlog=np.vectorize(log)
+vsin=np.vectorize(sin)
+vcos=np.vectorize(cos)

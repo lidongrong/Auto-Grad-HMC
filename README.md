@@ -14,7 +14,11 @@ A key advantange of HMC is that it does not need to compute the marginal distrib
 
 ## Sample From a Normal Model
 
-In this section, a toy example will be given to demonstrate the inference procedure.
+In this section, a toy example will be given to demonstrate the inference procedure. 
+
+$$
+h(x)=x^2+2x+3
+$$
 
 ## Reference
 
